@@ -26,6 +26,7 @@ return require('packer').startup(function(use)
     -- Syntax
     use 'sheerun/vim-polyglot'
     use {'prettier/vim-prettier', run = "yarn install"}
+    use {'styled-components/vim-styled-components', branch = "main"}
     
     -- FZF
     use '/usr/local/opt/fzf'
