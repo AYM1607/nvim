@@ -15,10 +15,11 @@ return require('packer').startup(function(use)
     -- LSP
     use 'neovim/nvim-lspconfig'
     use 'glepnir/lspsaga.nvim'
+    use 'kabouzeid/nvim-lspinstall'
 
     -- Autocomplete
     use 'hrsh7th/nvim-compe'
-    
+
     -- Theme
     use 'drewtempelmeyer/palenight.vim'
     use 'kyazdani42/nvim-web-devicons'
@@ -27,16 +28,27 @@ return require('packer').startup(function(use)
     use 'sheerun/vim-polyglot'
     use {'prettier/vim-prettier', run = "yarn install"}
     use {'styled-components/vim-styled-components', branch = "main"}
-    
+
     -- FZF
     use '/usr/local/opt/fzf'
     use 'junegunn/fzf.vim'
+    use 'airblade/vim-rooter'
 
     use {
       'nvim-telescope/telescope.nvim',
       requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
 
+    -- Git symobls.
+    use {
+      'lewis6991/gitsigns.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim'
+      },
+      config = function()
+        require('gitsigns').setup()
+      end
+    }
     use 'jiangmiao/auto-pairs'
     use 'itchyny/lightline.vim'
 
