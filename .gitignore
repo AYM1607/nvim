@@ -1,0 +1,5 @@
+lang-srvrs/**/*
+
+.netrwhist
+
+packer_compiled.vim
