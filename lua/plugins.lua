@@ -4,7 +4,7 @@ local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
-    execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+    fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
     execute 'packadd packer.nvim'
 end
 
@@ -16,9 +16,10 @@ return require('packer').startup(function(use)
     use 'neovim/nvim-lspconfig'
     use 'glepnir/lspsaga.nvim'
     use 'kabouzeid/nvim-lspinstall'
-
     -- Autocomplete
     use 'hrsh7th/nvim-compe'
+    -- Function signatures
+    use "ray-x/lsp_signature.nvim"
 
     -- Theme
     use 'drewtempelmeyer/palenight.vim'
@@ -26,7 +27,7 @@ return require('packer').startup(function(use)
 
     -- Syntax
     use 'sheerun/vim-polyglot'
-    use {'prettier/vim-prettier', run = "yarn install"}
+    -- use {'prettier/vim-prettier', run = "yarn install"}
     use {'styled-components/vim-styled-components', branch = "main"}
 
     -- FZF
@@ -39,9 +40,10 @@ return require('packer').startup(function(use)
       requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
 
+
     -- Git symobls.
     use {
-      'lewis6991/gitsigns.nvim',
+     'lewis6991/gitsigns.nvim',
       requires = {
         'nvim-lua/plenary.nvim'
       },
@@ -49,7 +51,11 @@ return require('packer').startup(function(use)
         require('gitsigns').setup()
       end
     }
+
     use 'jiangmiao/auto-pairs'
     use 'itchyny/lightline.vim'
+
+    -- Golang
+    use 'fatih/vim-go'
 
     end)
