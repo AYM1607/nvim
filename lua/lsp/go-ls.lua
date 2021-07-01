@@ -1,5 +1,17 @@
 lspconfig = require "lspconfig"
 lspconfig.gopls.setup {
+  on_attach = function(client, bufnr)
+    require "lsp_signature".on_attach({
+        bind = false,
+        -- floating_window = true,
+        --hint_enable = true,
+        fix_pos = true,
+        use_lspsaga = true,
+        --handler_opts = {
+        --  border = "single"   -- double, single, shadow, none
+        --},
+      })
+  end,
   cmd = {"gopls", "serve"},
   settings = {
     gopls = {
@@ -44,3 +56,5 @@ function goimports(timeout_ms)
 end
 
 vim.cmd("autocmd BufWritePre *.go lua goimports(1000)")
+local saga = require 'lspsaga'
+saga.init_lsp_saga()
