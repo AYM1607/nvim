@@ -28,7 +28,7 @@ lspconfig.gopls.setup {
 local saga = require 'lspsaga'
 saga.init_lsp_saga()
 
--- Configre vim-go
+------ Configre vim-go
 -- Disable autocomplete since we already have it with native lsp.
 vim.g.go_code_completion_enabled = 0
 -- Disable gopls for the same reasons as above.
@@ -47,36 +47,16 @@ vim.g.go_def_mapping_enabled = 0
 -- Use globally installed binaries first. (gopls) installed through brew.
 vim.g.go_search_bin_path_first = 0
 
+-- When auto-creating a template file, use the package rather than a file.
+vim.g.go_template_use_pkg = 1
 
+-- Configure folding.
+-- vim.cmd("autocmd FileType go setlocal foldmethod=syntax")
+-- vim.g.go_fmt_experimental = 1
 
--- function goimports(timeout_ms)
---   local context = { source = { organizeImports = true } }
---   vim.validate { context = { context, "t", true } }
--- 
---   local params = vim.lsp.util.make_range_params()
---   params.context = context
--- 
---   -- See the implementation of the textDocument/codeAction callback
---   -- (lua/vim/lsp/handler.lua) for how to do this properly.
---   local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
---   if not result or next(result) == nil then return end
---   local actions = result[1].result
---   if not actions then return end
---   local action = actions[1]
--- 
---   -- textDocument/codeAction can return either Command[] or CodeAction[]. If it
---   -- is a CodeAction, it can have either an edit, a command or both. Edits
---   -- should be executed first.
---   if action.edit or type(action.command) == "table" then
---     if action.edit then
---       vim.lsp.util.apply_workspace_edit(action.edit)
---     end
---     if type(action.command) == "table" then
---       vim.lsp.buf.execute_command(action.command)
---     end
---   else
---     vim.lsp.buf.execute_command(action)
---   end
--- end
--- 
--- vim.cmd("autocmd BufWritePre *.go lua goimports(1000)")
+-- Highlights.
+vim.g.go_highlight_operators = 1
+vim.g.go_highlight_types = 1
+vim.g.go_highlight_extra_types = 1
+vim.g.go_highlight_functions = 1
+vim.g.go_highlight_function_calls = 1
