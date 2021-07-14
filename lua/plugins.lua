@@ -30,9 +30,6 @@ return require('packer').startup(function(use)
     use {'prettier/vim-prettier', run = "yarn install"}
     use {'styled-components/vim-styled-components', branch = "main"}
 
-    -- FZF
-    use '/usr/local/opt/fzf'
-    use 'junegunn/fzf.vim'
     use 'airblade/vim-rooter'
 
     use {

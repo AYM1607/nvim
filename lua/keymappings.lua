@@ -23,6 +23,9 @@ vim.api.nvim_set_keymap('n', '<Leader>fw', ':w<CR>', {silent = true})
 -- Toggle between buffesr.
 vim.api.nvim_set_keymap('n', '<Leader><Leader>', '<C-^>', {noremap = true, silent = true})
 
-vim.api.nvim_set_keymap('n', '<Leader>ff', ':Files<CR>',{})
-vim.api.nvim_set_keymap('n', '<Leader>bs', ':Buffers<CR>',{})
-vim.api.nvim_set_keymap('n', '<Leader>ps', ':Rg<CR>', {noremap = true})
+-- Find files inside the current folder.
+vim.api.nvim_set_keymap('n', '<Leader>ff', '<cmd>Telescope find_files<cr>',{})
+-- Do a grep search in the current folder.
+vim.api.nvim_set_keymap('n', '<Leader>ps', '<cmd>Telescope live_grep<cr>',{})
+-- Search among the currently open buffers.
+vim.api.nvim_set_keymap('n', '<Leader>bs', '<cmd>Telescope buffers<cr>',{})
