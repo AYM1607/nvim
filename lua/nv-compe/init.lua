@@ -19,8 +19,8 @@ require'compe'.setup {
   source = {
     path = true;
     buffer = false;
-    calc = true;
-    vsnip = true;
+    calc = false;
+    vsnip = false; -- Could be used if I want to start using snippets.
     nvim_lsp = true;
     nvim_lua = true;
     tags = true;
@@ -61,6 +61,7 @@ end
 vim.api.nvim_set_keymap("i", "<C-j>", "v:lua.comp_jump_if_avail()", {expr = true})
 vim.api.nvim_set_keymap("s", "<C-j>", "v:lua.comp_jump_if_avail()", {expr = true})
 -- The next 4 funtcions don't work if compe doesn't automatically select the first option.
+-- meaning  the preselect option has to be set to alwasy.
 vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<CR>", "v:lua.enter_complete()", {expr = true})
