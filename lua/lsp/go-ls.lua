@@ -54,6 +54,10 @@ vim.g.go_template_use_pkg = 1
 -- vim.cmd("autocmd FileType go setlocal foldmethod=syntax")
 -- vim.g.go_fmt_experimental = 1
 
+-- Use a ruler for go files.
+vim.cmd("autocmd FileType go setlocal colorcolumn=80")
+
+
 -- Highlights.
 vim.g.go_highlight_operators = 1
 vim.g.go_highlight_types = 1
