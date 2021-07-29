@@ -22,3 +22,15 @@ vim.o.updatetime = 300 -- Faster completion
 vim.o.timeoutlen = 500 -- By default timeoutlen is 1000 ms
 
 vim.cmd(":set number relativenumber")
+vim.cmd("highlight ColorColumn ctermbg=0 guibg=lightgrey")
+------ Folding
+-- vim.o.foldlevel = 99
+-- Persist folds.
+-- Ignore errors.
+-- vim.cmd([[
+--     augroup AutoSaveFolds
+--       autocmd!
+--       autocmd BufWinLeave * silent! mkview
+--       autocmd BufWinEnter * silent! loadview
+--     augroup END
+-- ]])
