@@ -25,6 +25,8 @@ vim.api.nvim_set_keymap('n', '<Leader><Leader>', '<C-^>', {noremap = true, silen
 
 -- Find files inside the current folder.
 vim.api.nvim_set_keymap('n', '<Leader>ff', '<cmd>Telescope find_files<cr>',{})
+-- Find files and folders allowing creation.
+vim.api.nvim_set_keymap('n', '<Leader>fb', '<cmd>Telescope file_browser<cr>',{})
 -- Do a grep search in the current folder.
 vim.api.nvim_set_keymap('n', '<Leader>ps', '<cmd>Telescope live_grep<cr>',{})
 -- Search among the currently open buffers.
