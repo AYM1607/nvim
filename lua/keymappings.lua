@@ -17,6 +17,11 @@ vim.api.nvim_set_keymap('o', '<C-g>', '<ESC>', {silent = true})
 vim.api.nvim_set_keymap('l', '<C-g>', '<ESC>', {silent = true})
 vim.api.nvim_set_keymap('t', '<C-g>', '<ESC>', {silent = true})
 
+-- Move left and right when in insert mode.
+vim.api.nvim_set_keymap("i", '<C-l>', '<Right>', {silent = true})
+vim.api.nvim_set_keymap("i", '<C-h>', '<Left>', {silent = true})
+
+
 -- Quick save.
 vim.api.nvim_set_keymap('n', '<Leader>fw', ':w<CR>', {silent = true})
 

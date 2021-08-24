@@ -1,4 +1,4 @@
-lspconfig = require "lspconfig"
+local lspconfig = require "lspconfig"
 lspconfig.gopls.setup {
   on_attach = function(client, bufnr)
     require "lsp_signature".on_attach({
@@ -14,6 +14,7 @@ lspconfig.gopls.setup {
   end,
   cmd = {"gopls", "serve"},
   settings = {
+    autostart = true,
     gopls = {
       analyses = {
         unusedparams = true,
@@ -21,6 +22,7 @@ lspconfig.gopls.setup {
       staticcheck = true,
     },
   },
+  autostart = true,
   root_dir = lspconfig.util.root_pattern(".git","go.mod"),
   init_options = {usePlaceholders = true, completeUnimported = true},
 }
