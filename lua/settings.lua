@@ -23,6 +23,7 @@ vim.o.timeoutlen = 500 -- By default timeoutlen is 1000 ms
 
 vim.cmd(":set number relativenumber")
 vim.cmd("highlight ColorColumn ctermbg=0 guibg=grey")
+
 ------ Folding
 -- vim.o.foldlevel = 99
 -- Persist folds.

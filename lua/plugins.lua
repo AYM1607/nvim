@@ -56,7 +56,10 @@ return require('packer').startup(function(use)
     use 'fatih/vim-go'
 
     -- Pyhton
-    use 'a-vrma/black-nvim'
+    -- use 'a-vrma/black-nvim'
+    use {
+        'psf/black', branch = "stable"
+    }
 
     -- Comments
     use 'tpope/vim-commentary'

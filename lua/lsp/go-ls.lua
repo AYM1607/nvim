@@ -2,14 +2,14 @@ local lspconfig = require "lspconfig"
 lspconfig.gopls.setup {
   on_attach = function(client, bufnr)
     require "lsp_signature".on_attach({
-        bind = false,
+        bind = true,
         -- floating_window = true,
         --hint_enable = true,
         fix_pos = true,
         use_lspsaga = true,
-        --handler_opts = {
-        --  border = "single"   -- double, single, shadow, none
-        --},
+        handler_opts = {
+          border = "rounded"   -- double, single, shadow, none
+        },
       })
   end,
   cmd = {"gopls", "serve"},
@@ -27,8 +27,6 @@ lspconfig.gopls.setup {
   init_options = {usePlaceholders = true, completeUnimported = true},
 }
 
-local saga = require 'lspsaga'
-saga.init_lsp_saga()
 
 ------ Configre vim-go
 -- Disable autocomplete since we already have it with native lsp.
