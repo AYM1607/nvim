@@ -18,6 +18,6 @@ require('lsp.go-ls')
 require('nv-compe')
 
 -- Function signatures
-require('lsp_signature')
+-- require('lsp_signature')
 
 require('nv-prettier')

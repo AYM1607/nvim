@@ -34,8 +34,12 @@ vim.g.go_code_completion_enabled = 0
 -- Disable gopls for the same reasons as above.
 vim.g.go_gopls_enabled = 0
 
--- Use goimports for both formatting and imports.
-vim.g.go_fmt_command = 'goimports'
+-- Simplify code when formatting.
+vim.g.go_fmt_command = 'gofmt'
+vim.g.go_fmt_options = {
+  gofmt = '-s',
+}
+
 vim.g.go_imports_mode = 'goimports'
 
 -- Could confilg with lsp saga, should experiment.

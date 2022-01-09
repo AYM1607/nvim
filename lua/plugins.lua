@@ -29,6 +29,7 @@ return require('packer').startup(function(use)
     use 'sheerun/vim-polyglot'
     use {'prettier/vim-prettier', run = "yarn install"}
     use {'styled-components/vim-styled-components', branch = "main"}
+    use 'dominikduda/vim_current_word'
 
     use 'airblade/vim-rooter'
 
@@ -51,6 +52,7 @@ return require('packer').startup(function(use)
 
     use 'jiangmiao/auto-pairs'
     use 'itchyny/lightline.vim'
+    use 'itchyny/vim-gitbranch'
 
     -- Golang
     use 'fatih/vim-go'
@@ -63,5 +65,8 @@ return require('packer').startup(function(use)
 
     -- Comments
     use 'tpope/vim-commentary'
+
+    -- Smooth scrolling
+    use 'psliwka/vim-smoothie'
 
     end)

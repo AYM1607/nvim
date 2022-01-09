@@ -22,7 +22,6 @@ vim.o.updatetime = 300 -- Faster completion
 vim.o.timeoutlen = 500 -- By default timeoutlen is 1000 ms
 
 vim.cmd(":set number relativenumber")
-vim.cmd("highlight ColorColumn ctermbg=0 guibg=grey")
 
 ------ Folding
 -- vim.o.foldlevel = 99
@@ -35,3 +34,29 @@ vim.cmd("highlight ColorColumn ctermbg=0 guibg=grey")
 --       autocmd BufWinEnter * silent! loadview
 --     augroup END
 -- ]])
+
+-- Show full file path in lightline.
+vim.cmd([[
+let g:lightline = {
+      \ 'colorscheme' : 'palenight',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'filename': 'FilenameForLightline',
+      \   'gitbranch': 'gitbranch#name'
+      \ }
+      \ }
+
+function! FilenameForLightline()
+  let root = fnamemodify(get(b:, 'gitbranch_path'), ':h:h')
+  let path = expand('%:p')
+  if path[:len(root)-1] ==# root
+    return path[len(root)+1:]
+  endif
+  return expand('%')
+endfunction
+]])
+
+
