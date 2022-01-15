@@ -36,3 +36,11 @@ vim.api.nvim_set_keymap('n', '<Leader>fb', '<cmd>Telescope file_browser<cr>',{})
 vim.api.nvim_set_keymap('n', '<Leader>ps', '<cmd>Telescope live_grep<cr>',{})
 -- Search among the currently open buffers.
 vim.api.nvim_set_keymap('n', '<Leader>bs', '<cmd>Telescope buffers<cr>',{})
+
+------ Trouble
+vim.api.nvim_set_keymap("n", "<leader>lwd", "<cmd>Trouble workspace_diagnostics<cr>",
+  {silent = true, noremap = true}
+) -- Mnemonic "lsp workspace diagnostics"
+vim.api.nvim_set_keymap("n", "<leader>ldd", "<cmd>Trouble document_diagnostics<cr>",
+  {silent = true, noremap = true}
+) -- Mnemonic "lsp document diagnostics"

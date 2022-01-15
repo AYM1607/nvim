@@ -60,7 +60,8 @@ vim.g.go_template_use_pkg = 1
 
 -- Use a ruler for go files.
 vim.cmd("autocmd FileType go setlocal colorcolumn=80")
-
+-- Automatically add comment symbol on next line and wrap it.
+vim.cmd("autocmd FileType go setlocal fo+=c fo+=r")
 
 -- Highlights.
 vim.g.go_highlight_operators = 1
