@@ -17,7 +17,6 @@ require('lsp.go-ls')
 -- Completion
 require('nv-compe')
 
--- Function signatures
--- require('lsp_signature')
+require('nv-indent-blankline')
 
 require('nv-prettier')

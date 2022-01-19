@@ -23,6 +23,11 @@ vim.o.timeoutlen = 500 -- By default timeoutlen is 1000 ms
 
 vim.cmd(":set number relativenumber")
 
+
+vim.cmd("autocmd FileType helm set nofixendofline")
+vim.cmd("autocmd FileType yaml set nofixendofline")
+vim.cmd("autocmd FileType yml set nofixendofline")
+
 ------ Folding
 -- vim.o.foldlevel = 99
 -- Persist folds.

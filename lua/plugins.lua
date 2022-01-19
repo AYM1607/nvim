@@ -27,9 +27,27 @@ return require('packer').startup(function(use)
 
     -- Syntax
     use 'sheerun/vim-polyglot'
-    use {'prettier/vim-prettier', run = "yarn install"}
+    use {
+        'prettier/vim-prettier',
+        run = "yarn install",
+        ft = {"javascript", "typescript", "json"}
+    }
     use {'styled-components/vim-styled-components', branch = "main"}
     use 'dominikduda/vim_current_word'
+    use {
+        'lukas-reineke/indent-blankline.nvim',
+        ft = {'yaml', 'yml', 'helm'},
+        config = function()
+            vim.opt.list = true
+            vim.opt.listchars:append("space:⋅")
+            vim.opt.listchars:append("eol:↴")
+
+            require("indent_blankline").setup {
+                show_end_of_line = true,
+                space_char_blankline = " ",
+            }
+        end
+    }
 
     use 'airblade/vim-rooter'
 
