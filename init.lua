@@ -17,6 +17,6 @@ require('lsp.go-ls')
 -- Completion
 require('nv-compe')
 
-require('nv-indent-blankline')
-
 require('nv-prettier')
+
+require('nv-telescope')

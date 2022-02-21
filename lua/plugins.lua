@@ -50,11 +50,14 @@ return require('packer').startup(function(use)
     }
 
     use 'airblade/vim-rooter'
-
+    
+    -- Telescope
+    use { "nvim-telescope/telescope-file-browser.nvim" }
     use {
       'nvim-telescope/telescope.nvim',
-      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
     }
+
 
     -- Diagnostics
     -- Lua
