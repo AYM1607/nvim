@@ -2,9 +2,23 @@
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true})
 vim.g.mapleader = ' '
 
--- Exit insert mode with jk.
-vim.api.nvim_set_keymap('i', 'jk', '<ESC>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true, silent = true})
+-- Exit insert mode with ne.
+vim.api.nvim_set_keymap('i', 'en', '<ESC>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('i', 'ne', '<ESC>', {noremap = true, silent = true})
+
+-- Remap for colemak-dhm.
+-- Left.
+vim.api.nvim_set_keymap('n', 'm', 'h', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'h', 'm', {noremap = true, silent = true})
+-- Down.
+vim.api.nvim_set_keymap('n', 'j', 'n', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'n', 'j', {noremap = true, silent = true})
+-- Up.
+vim.api.nvim_set_keymap('n', 'k', 'e', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'e', 'k', {noremap = true, silent = true})
+-- Right.
+vim.api.nvim_set_keymap('n', 'l', 'i', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'i', 'l', {noremap = true, silent = true})
 
 -- C-g as ESC
 vim.api.nvim_set_keymap('n', '<C-g>', '<ESC>', {silent = true})
@@ -17,15 +31,14 @@ vim.api.nvim_set_keymap('o', '<C-g>', '<ESC>', {silent = true})
 vim.api.nvim_set_keymap('l', '<C-g>', '<ESC>', {silent = true})
 vim.api.nvim_set_keymap('t', '<C-g>', '<ESC>', {silent = true})
 
--- Move left and right when in insert mode.
-vim.api.nvim_set_keymap("i", '<C-l>', '<Right>', {silent = true})
-vim.api.nvim_set_keymap("i", '<C-h>', '<Left>', {silent = true})
+-- Move right when in insert mode.
+vim.api.nvim_set_keymap("i", '<C-i>', '<Right>', {silent = true})
 
 
 -- Quick save.
 vim.api.nvim_set_keymap('n', '<Leader>fw', ':w<CR>', {silent = true})
 
--- Toggle between buffesr.
+-- Toggle between buffers.
 vim.api.nvim_set_keymap('n', '<Leader><Leader>', '<C-^>', {noremap = true, silent = true})
 
 -- Find files inside the current folder.
