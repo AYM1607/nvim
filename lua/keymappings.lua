@@ -8,17 +8,17 @@ vim.api.nvim_set_keymap('i', 'ne', '<ESC>', {noremap = true, silent = true})
 
 -- Remap for colemak-dhm.
 -- Left.
-vim.api.nvim_set_keymap('n', 'm', 'h', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', 'h', 'm', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('', 'm', 'h', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('', 'h', 'm', {noremap = true, silent = true})
 -- Down.
-vim.api.nvim_set_keymap('n', 'j', 'n', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', 'n', 'j', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('', 'j', 'n', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('', 'n', 'j', {noremap = true, silent = true})
 -- Up.
-vim.api.nvim_set_keymap('n', 'k', 'e', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', 'e', 'k', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('', 'k', 'e', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('', 'e', 'k', {noremap = true, silent = true})
 -- Right.
-vim.api.nvim_set_keymap('n', 'l', 'i', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', 'i', 'l', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('', 'l', 'i', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('', 'i', 'l', {noremap = true, silent = true})
 
 -- C-g as ESC
 vim.api.nvim_set_keymap('n', '<C-g>', '<ESC>', {silent = true})
