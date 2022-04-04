@@ -2,9 +2,8 @@
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true})
 vim.g.mapleader = ' '
 
--- Exit insert mode with ne.
-vim.api.nvim_set_keymap('i', 'en', '<ESC>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('i', 'ne', '<ESC>', {noremap = true, silent = true})
+-- Exit insert mode with ,h.
+vim.api.nvim_set_keymap('i', ',h', '<ESC>', {noremap = true, silent = true})
 
 -- Remap for colemak-dhm.
 -- Left.
@@ -32,7 +31,7 @@ vim.api.nvim_set_keymap('l', '<C-g>', '<ESC>', {silent = true})
 vim.api.nvim_set_keymap('t', '<C-g>', '<ESC>', {silent = true})
 
 -- Move right when in insert mode.
-vim.api.nvim_set_keymap("i", '<C-i>', '<Right>', {silent = true})
+vim.api.nvim_set_keymap("i", '<C-l>', '<Right>', {noremap = true, silent = true})
 
 
 -- Quick save.
