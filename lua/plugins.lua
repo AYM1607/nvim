@@ -51,12 +51,14 @@ return require('packer').startup(function(use)
 
     use 'airblade/vim-rooter'
     
-    -- Telescope
+    -- Find tools.
     use { "nvim-telescope/telescope-file-browser.nvim" }
     use {
       'nvim-telescope/telescope.nvim',
       requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
     }
+    use { "junegunn/fzf" }
+    use { "junegunn/fzf.vim" }
 
 
     -- Diagnostics
@@ -74,10 +76,8 @@ return require('packer').startup(function(use)
 
     -- Git symobls.
     use {
-     'lewis6991/gitsigns.nvim',
-      requires = {
-        'nvim-lua/plenary.nvim'
-      },
+      'lewis6991/gitsigns.nvim',
+      tag = 'release',
       config = function()
         require('gitsigns').setup()
       end
@@ -95,6 +95,9 @@ return require('packer').startup(function(use)
     use {
         'psf/black', branch = "stable"
     }
+    
+    -- Ocaml
+    use "lukas-reineke/lsp-format.nvim"
 
     -- Comments
     use 'tpope/vim-commentary'

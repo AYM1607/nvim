@@ -47,7 +47,7 @@ vim.api.nvim_set_keymap('n', '<Leader>fb', '<cmd>Telescope file_browser<cr>', {n
 -- File brosers starting at the cwd.
 vim.api.nvim_set_keymap('n', '<Leader>fc', '<cmd>Telescope file_browser path=%:p:h<cr>', {noremap = true})
 -- Do a grep search in the current folder.
-vim.api.nvim_set_keymap('n', '<Leader>ps', '<cmd>Telescope live_grep<cr>',{})
+vim.api.nvim_set_keymap('n', '<Leader>ps', ':Rg<cr>',{})
 -- Search among the currently open buffers.
 vim.api.nvim_set_keymap('n', '<Leader>bs', '<cmd>Telescope buffers<cr>',{})
 

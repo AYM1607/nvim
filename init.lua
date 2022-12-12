@@ -13,6 +13,8 @@ require('lsp.python-ls')
 require('lsp.lua-ls')
 require('lsp.elixir-ls')
 require('lsp.go-ls')
+require('lsp.ocaml-ls')
+-- require('lsp.sml-ls')
 
 -- Completion
 require('nv-compe')
