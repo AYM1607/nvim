@@ -14,7 +14,17 @@ return require('packer').startup(function(use)
 
     -- LSP
     use 'neovim/nvim-lspconfig'
-    use 'glepnir/lspsaga.nvim'
+    use({
+        "glepnir/lspsaga.nvim",
+        branch = "main",
+        config = function()
+            local saga = require("lspsaga")
+
+            saga.init_lsp_saga({
+                -- your configuration
+            })
+        end,
+    })
     use 'kabouzeid/nvim-lspinstall'
     -- Autocomplete
     use 'hrsh7th/nvim-compe'
@@ -53,6 +63,7 @@ return require('packer').startup(function(use)
     
     -- Find tools.
     use { "nvim-telescope/telescope-file-browser.nvim" }
+    use {'nvim-telescope/telescope-ui-select.nvim' }
     use {
       'nvim-telescope/telescope.nvim',
       requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
@@ -89,6 +100,9 @@ return require('packer').startup(function(use)
 
     -- Golang
     use 'fatih/vim-go'
+
+    -- Flutter/Dart
+    use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
 
     -- Pyhton
     -- use 'a-vrma/black-nvim'

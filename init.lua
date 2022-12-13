@@ -1,10 +1,8 @@
 require('settings')
-require('keymappings')
 require('nv-globals')
 require('plugins')
 require('colorscheme')
 require('settings')
-require('keymappings')
 
 -- LSP
 require('lsp')
@@ -14,7 +12,9 @@ require('lsp.lua-ls')
 require('lsp.elixir-ls')
 require('lsp.go-ls')
 require('lsp.ocaml-ls')
--- require('lsp.sml-ls')
+require('lsp.sml-ls')
+require('lsp.arduino-ls')
+require('lsp.flutter-ls')
 
 -- Completion
 require('nv-compe')
@@ -22,3 +22,6 @@ require('nv-compe')
 require('nv-prettier')
 
 require('nv-telescope')
+
+-- Set up keymaps after everything is configured.
+require('keymappings')
