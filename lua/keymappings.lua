@@ -1,3 +1,8 @@
+local lsp = vim.lsp
+local handlers = lsp.handlers
+local saga = require('lspsaga')
+saga.init_lsp_saga()
+
 -- Space as leader.
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true})
 vim.g.mapleader = ' '
@@ -33,6 +38,11 @@ vim.api.nvim_set_keymap('t', '<C-g>', '<ESC>', {silent = true})
 -- Move right when in insert mode.
 vim.api.nvim_set_keymap("i", '<C-l>', '<Right>', {noremap = true, silent = true})
 
+-- Leader window movement.
+vim.api.nvim_set_keymap("n", '<Leader>wm', '<C-w>h', {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", '<Leader>wn', '<C-w>j', {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", '<Leader>we', '<C-w>k', {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", '<Leader>wi', '<C-w>l', {noremap = true, silent = true})
 
 -- Quick save.
 vim.api.nvim_set_keymap('n', '<Leader>fw', ':w<CR>', {silent = true})
@@ -50,6 +60,24 @@ vim.api.nvim_set_keymap('n', '<Leader>fc', '<cmd>Telescope file_browser path=%:p
 vim.api.nvim_set_keymap('n', '<Leader>ps', '<cmd>Telescope live_grep<cr>',{})
 -- Search among the currently open buffers.
 vim.api.nvim_set_keymap('n', '<Leader>bs', '<cmd>Telescope buffers<cr>',{})
+-- Code actions.
+vim.api.nvim_set_keymap('n', '<Leader>ca', "<Cmd>lua vim.lsp.buf.code_action()<CR>",{silent = true, noremap = true})
+vim.api.nvim_set_keymap('x', '<Leader>ca', "<Cmd>lua vim.lsp.buf.range_code_action()<CR>",{silent = true, noremap = true})
+-- Flutter commands.
+vim.api.nvim_set_keymap('n', '<Leader>fl', "<cmd>lua require('telescope').extensions.flutter.commands()<cr>",{silent = true, noremap = true})
+
+
+-- Hover doc popup
+local pop_opts = { border = "rounded", max_width = 80 }
+handlers["textDocument/hover"] = lsp.with(handlers.hover, pop_opts)
+handlers["textDocument/signatureHelp"] = lsp.with(handlers.signature_help, pop_opts)
+
+vim.api.nvim_set_keymap('n', '<Leader>lgd', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>lgD', '<cmd>lua vim.lsp.buf.declaration()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>lgr', '<cmd>lua vim.lsp.buf.references()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>lgi', '<cmd>lua vim.lsp.buf.implementation()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>lr', '<cmd>Lspsaga rename<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
 
 ------ Trouble
 vim.api.nvim_set_keymap("n", "<leader>lwd", "<cmd>Trouble workspace_diagnostics<cr>",
