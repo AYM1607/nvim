@@ -11,6 +11,8 @@ require('lsp.python-ls')
 require('lsp.lua-ls')
 require('lsp.elixir-ls')
 require('lsp.go-ls')
+require('lsp.ocaml-ls')
+require('lsp.sml-ls')
 require('lsp.arduino-ls')
 require('lsp.flutter-ls')
 

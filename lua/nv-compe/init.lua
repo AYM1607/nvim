@@ -29,6 +29,12 @@ require'compe'.setup {
   };
 }
 
+vim.cmd([[
+autocmd FileType ocaml call compe#setup({
+\ 'preselect': 'disable'
+\ }, 0)
+]])
+
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
@@ -50,22 +56,24 @@ _G.tab_complete = function()
     return t "<Tab>"
   end
 end
-_G.enter_complete = function() 
-  if vim.fn.pumvisible() == 1 then
+_G.enter_complete = function()
+  if vim.bo.filetype == "ocaml" then
+    return t "<CR>"
+  elseif vim.fn.pumvisible() == 1 then
     return vim.fn['compe#confirm']('')
   else
     return t "<CR>"
   end
 end
 
-vim.api.nvim_set_keymap("i", "<C-j>", "v:lua.comp_jump_if_avail()", {expr = true})
-vim.api.nvim_set_keymap("s", "<C-j>", "v:lua.comp_jump_if_avail()", {expr = true})
+vim.api.nvim_set_keymap("i", "<C-n>", "v:lua.comp_jump_if_avail()", {expr = true})
+vim.api.nvim_set_keymap("s", "<C-n>", "v:lua.comp_jump_if_avail()", {expr = true})
+vim.api.nvim_set_keymap("i", "<C-e>", "v:lua.comp_jump_prev_if_avail()", {expr = true})
+vim.api.nvim_set_keymap("s", "<C-e>", "v:lua.comp_jump_prev_if_avail()", {expr = true})
 -- The next 4 funtcions don't work if compe doesn't automatically select the first option.
 -- meaning  the preselect option has to be set to alwasy.
 vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<CR>", "v:lua.enter_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<CR>", "v:lua.enter_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<C-k>", "v:lua.comp_jump_prev_if_avail()", {expr = true})
-vim.api.nvim_set_keymap("s", "<C-k>", "v:lua.comp_jump_prev_if_avail()", {expr = true})
 
