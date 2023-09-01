@@ -15,6 +15,3 @@ require'lspconfig'.tsserver.setup{
     filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
     root_dir = require('lspconfig/util').root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")
 }
-
-local saga = require 'lspsaga'
-saga.init_lsp_saga()
