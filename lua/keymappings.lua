@@ -1,7 +1,7 @@
 local lsp = vim.lsp
 local handlers = lsp.handlers
-local saga = require('lspsaga')
-saga.init_lsp_saga()
+-- local saga = require('lspsaga')
+-- saga.init_lsp_saga()
 
 -- Space as leader.
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true})

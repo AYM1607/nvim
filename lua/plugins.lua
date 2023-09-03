@@ -18,11 +18,11 @@ return require('packer').startup(function(use)
         "glepnir/lspsaga.nvim",
         branch = "main",
         config = function()
-            local saga = require("lspsaga")
+            -- local saga = require("lspsaga")
 
-            saga.init_lsp_saga({
+                -- saga.init_lsp_saga({
                 -- your configuration
-            })
+                -- })
         end,
     })
     use 'kabouzeid/nvim-lspinstall'
@@ -37,11 +37,11 @@ return require('packer').startup(function(use)
 
     -- Syntax
     use 'sheerun/vim-polyglot'
-    use {
-        'prettier/vim-prettier',
-        run = "yarn install",
-        ft = {"javascript", "typescript", "json"}
-    }
+    -- use {
+    ---    'prettier/vim-prettier',
+    --     run = "yarn install",
+    --     ft = {"javascript", "typescript", "json"}
+    -- }
     use {'styled-components/vim-styled-components', branch = "main"}
     use 'dominikduda/vim_current_word'
     use {
@@ -87,11 +87,11 @@ return require('packer').startup(function(use)
 
     -- Git symobls.
     use {
-      'lewis6991/gitsigns.nvim',
-      tag = 'release',
-      config = function()
-        require('gitsigns').setup()
-      end
+        'lewis6991/gitsigns.nvim',
+        tag = 'release',
+        config = function()
+            require('gitsigns').setup()
+        end
     }
 
     use 'jiangmiao/auto-pairs'

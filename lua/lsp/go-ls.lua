@@ -69,6 +69,3 @@ vim.g.go_highlight_types = 1
 vim.g.go_highlight_extra_types = 1
 vim.g.go_highlight_functions = 1
 vim.g.go_highlight_function_calls = 1
-
-local saga = require 'lspsaga'
-saga.init_lsp_saga()
