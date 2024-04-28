@@ -1,5 +1,6 @@
 local lsp = vim.lsp
 local handlers = lsp.handlers
+local keymap = vim.keymap.set
 
 -- Hover doc popup
 local pop_opts = { border = "rounded", max_width = 80 }
@@ -10,5 +11,7 @@ vim.api.nvim_set_keymap('n', '<Leader>lgd', '<cmd>lua vim.lsp.buf.definition()<C
 vim.api.nvim_set_keymap('n', '<Leader>lgD', '<cmd>lua vim.lsp.buf.declaration()<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<Leader>lgr', '<cmd>lua vim.lsp.buf.references()<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<Leader>lgi', '<cmd>lua vim.lsp.buf.implementation()<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<Leader>lr', '<cmd>lua require("lspsaga.rename").rename()<CR>', {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap('n', '<Leader>lr', '<cmd>lua require("lspsaga.rename").rename()<CR>', {noremap = true, silent = true})
+-- Rename all occurrences of the hovered word for the selected files
+keymap("n", "<Leader>lr", "<cmd>Lspsaga rename ++project<CR>")
 vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})

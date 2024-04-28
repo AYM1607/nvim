@@ -14,7 +14,23 @@ return require('packer').startup(function(use)
 
     -- LSP
     use 'neovim/nvim-lspconfig'
-    use 'glepnir/lspsaga.nvim'
+    use({
+        'nvimdev/lspsaga.nvim',
+        after = 'nvim-lspconfig',
+        config = function()
+            require("lspsaga").setup({
+                    lightbulb = {
+                        enable = false,
+                        sign = false,
+                    },
+                })
+        end,
+        requires = {
+            {"nvim-tree/nvim-web-devicons"},
+            --Please make sure you install markdown and markdown_inline parser
+            {"nvim-treesitter/nvim-treesitter"}
+        }
+    })
     use 'kabouzeid/nvim-lspinstall'
     -- Autocomplete
     use 'hrsh7th/nvim-compe'
@@ -27,11 +43,11 @@ return require('packer').startup(function(use)
 
     -- Syntax
     use 'sheerun/vim-polyglot'
-    use {
-        'prettier/vim-prettier',
-        run = "yarn install",
-        ft = {"javascript", "typescript", "json"}
-    }
+    -- use {
+    --     'prettier/vim-prettier',
+    --     run = "yarn install",
+    --     ft = {"javascript", "typescript", "json"}
+    -- }
     use {'styled-components/vim-styled-components', branch = "main"}
     use 'dominikduda/vim_current_word'
     use {

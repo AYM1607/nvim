@@ -6,7 +6,7 @@ lspconfig.gopls.setup {
         -- floating_window = true,
         --hint_enable = true,
         fix_pos = true,
-        use_lspsaga = true,
+        -- use_lspsaga = true,
         handler_opts = {
           border = "rounded"   -- double, single, shadow, none
         },
@@ -28,7 +28,7 @@ lspconfig.gopls.setup {
 }
 
 
------- Configre vim-go
+------ Configure vim-go
 -- Disable autocomplete since we already have it with native lsp.
 vim.g.go_code_completion_enabled = 0
 -- Disable gopls for the same reasons as above.
@@ -39,8 +39,9 @@ vim.g.go_fmt_command = 'gofmt'
 vim.g.go_fmt_options = {
   gofmt = '-s',
 }
-
 vim.g.go_imports_mode = 'goimports'
+vim.g.go_mod_fmt_autosave = 1
+vim.g.go_imports_autosave = 1
 
 -- Could confilg with lsp saga, should experiment.
 vim.g.go_doc_keywordprg_enabled = 0
