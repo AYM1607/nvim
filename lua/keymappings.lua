@@ -33,6 +33,11 @@ vim.api.nvim_set_keymap('t', '<C-g>', '<ESC>', {silent = true})
 -- Move right when in insert mode.
 vim.api.nvim_set_keymap("i", '<C-l>', '<Right>', {noremap = true, silent = true})
 
+-- Easily move between windows
+vim.api.nvim_set_keymap("n", '<Leader>wm', '<C-w>h', {silent = true})
+vim.api.nvim_set_keymap("n", '<Leader>wn', '<C-w>j', {silent = true})
+vim.api.nvim_set_keymap("n", '<Leader>we', '<C-w>k', {silent = true})
+vim.api.nvim_set_keymap("n", '<Leader>wi', '<C-w>l', {silent = true})
 
 -- Quick save.
 vim.api.nvim_set_keymap('n', '<Leader>fw', ':w<CR>', {silent = true})
